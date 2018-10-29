@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Javascript Development Environment",
   "repository": {
-    "type": "Github",
-    "url": "https://github.com/kingso/javascript-development-environment"
+    "type": "git",
+    "url": "https://github.com/kingso/Template"
   },
   "main": "index.js",
   "scripts": {
