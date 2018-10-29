@@ -24,7 +24,8 @@
     "cheerio": "^1.0.0-rc.2",
     "csvtojson": "^2.0.8",
     "mongodb": "^3.1.8",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "ajv": "^6.0.0",
