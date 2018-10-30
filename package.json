@@ -4,7 +4,7 @@
   "description": "Javascript Development Environment",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kingso/Template"
+    "url": "https://github.com/kingso/Starter"
   },
   "main": "index.js",
   "scripts": {
