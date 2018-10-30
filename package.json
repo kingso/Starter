@@ -2,24 +2,27 @@
   "name": "price_node",
   "version": "1.0.0",
   "description": "Javascript Development Environment",
-  "repository": {
+  "keywords": [],
+  "author": "Kingsley Oliver",
+  "license": "ISC",  "repository": {
     "type": "git",
     "url": "https://github.com/kingso/Starter"
   },
   "main": "index.js",
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
-    "start": "npm-run-all --parallel audit open:src lint:watch test:watch",
+    "start": "npm-run-all --parallel audit open:src lint:watch test:watch start-mockapi",
     "open:src": "babel-node buildScripts/srcServer.js",
     "audit": "npm audit",
     "lint:watch": "npm run lint -- --watch",
     "lint": "esw webpack.config.* src buildScripts --color",
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "generate-mock-data": "babel-node buildScripts/generateMockData",
+    "prestart-mockapi": "npm run generate-mock-data",
+    "start-mockapi": "json-server --watch src/api/db.json --port 3001"
+
   },
-  "keywords": [],
-  "author": "Kingsley Oliver",
-  "license": "ISC",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "csvtojson": "^2.0.8",
