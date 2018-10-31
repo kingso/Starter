@@ -1,5 +1,6 @@
 import path from 'path';
-import webpack from 'webpack';
+//import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   mode:"production",
@@ -11,10 +12,6 @@ export default {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  plugins: [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin()
-  ],
   module: {
     rules: [
       {
@@ -27,5 +24,27 @@ export default {
         loaders: ['style-loader','css-loader']
       }
     ]
-  }
+  },
+  plugins: [
+    // Create HTML file that includes reference to bundled JS.
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      },
+      inject: true,
+      // Properties you define here are available in index.html
+      // using htmlWebpackPlugin.options.varName
+      // trackJSToken: '43ad216f57d94259968435894490a5c7'
+    }),
+  ]
 }
