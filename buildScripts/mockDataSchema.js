@@ -9,13 +9,13 @@ export const schema = {
           "type": "object",
           "properties": {
             "id": {
-              "type": "number",
+              "type": "integer",
               "unique": true,
               "minimum": 1
             },
             "firstName": {
               "type": "string",
-              "faker": "name.firstName"
+              "faker": "name.findName"
             },
             "lastName": {
               "type": "string",
@@ -30,5 +30,5 @@ export const schema = {
         }
       }
     },
-    "required": ["users"]
+    "required": ["users"],
   };

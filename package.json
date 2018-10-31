@@ -4,7 +4,8 @@
   "description": "Javascript Development Environment",
   "keywords": [],
   "author": "Kingsley Oliver",
-  "license": "ISC",  "repository": {
+  "license": "ISC",
+  "repository": {
     "type": "git",
     "url": "https://github.com/kingso/Starter"
   },
@@ -20,8 +21,11 @@
     "test:watch": "npm run test -- --watch",
     "generate-mock-data": "babel-node buildScripts/generateMockData",
     "prestart-mockapi": "npm run generate-mock-data",
-    "start-mockapi": "json-server --watch src/api/db.json --port 3001"
-
+    "start-mockapi": "json-server --watch src/api/db.json --port 3001",
+    "clean-dist": "rimraf ./dist && mkdir dist",
+    "prebuild": "npm-run-all clean-dist test lint",
+    "build": "babel-node buildScripts/build.js",
+    "postbuild": "babel-node buildScripts/distServer.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
@@ -31,7 +35,7 @@
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
-    "ajv": "^6.0.0",
+    "ajv": "^6.5.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.0.0",
@@ -47,8 +51,9 @@
     "eslint-watch": "^4.0.2",
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "^3.0.2",
+    "faker": "^4.1.0",
     "jsdom": "^12.2.0",
-    "json-schema-faker": "^0.5.0-rc15",
+    "json-schema-faker": "^0.5.0-rc16",
     "json-server": "^0.14.0",
     "localtunnel": "^1.9.0",
     "mocha": "^5.2.0",
