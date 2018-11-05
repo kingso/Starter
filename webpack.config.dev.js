@@ -3,7 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   // mode:"production",
-  mode:"development",
+  mode: 'development',
   devtool: 'inline-source-map',
   entry: [
     path.resolve(__dirname, 'src/index')
@@ -30,11 +30,11 @@ export default {
       },
       {
         test: /\.css$/,
-        loaders: ['style-loader','css-loader']
+        loaders: ['style-loader', 'css-loader']
       }
     ]
   },
   devServer: {
-    noInfo:false
+    noInfo: false
   }
-}
+};

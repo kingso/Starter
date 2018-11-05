@@ -6,7 +6,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
 
-  mode:"production",
+  mode: 'production',
   devtool: 'source-map',
   entry: {
     vendor: path.resolve(__dirname, 'src/vendor'),
@@ -52,9 +52,13 @@ export default {
   ],
   module: {
     rules: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
-      {test: /\.css$/, use: ExtractTextPlugin.extract("css-loader?sourceMap")}
+      {
+        test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']
+      },
+      {
+        test: /\.css$/, use: ExtractTextPlugin.extract('css-loader?sourceMap')
+      }
 
     ]
   },
-}
+};
